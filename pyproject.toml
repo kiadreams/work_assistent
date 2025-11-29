@@ -1,0 +1,17 @@
+[project]
+name = ""
+version = "0.0.1"
+requires-python = ">=3.13"
+dependencies = [
+    "openpyxl>=3.1.5",
+]
+
+[dependency-groups]
+dev = []
+
+[tool.uv]
+package = false
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
