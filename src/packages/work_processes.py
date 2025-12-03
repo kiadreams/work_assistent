@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 
-from src.package.work import Work
-from src.package.employee import Employee
+from src.packages.work import Work
+from src.packages.employee import Employee
 
 
 @dataclass

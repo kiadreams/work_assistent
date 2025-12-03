@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import timedelta
 from enum import StrEnum
 
-from src.package.device import Device
+from src.packages.device import Device
 
 
 class TypeOfWork(StrEnum):

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from src.package.work import WorkOrder, Work
-from src.package.work_processes import EmployeeEvent
+from src.packages.work import WorkOrder, Work
+from src.packages.work_processes import EmployeeEvent
 
 
 @dataclass
