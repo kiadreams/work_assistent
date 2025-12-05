@@ -31,7 +31,10 @@ class WorkSheets:
         else:
             self.wb.active.title = new_ws_title
 
-    def insert_data_in_cell(self, data: str, cell: str, font: Font | None, alignment: Alignment | None) -> None:
+    def insert_data_to_sheet(self, data: list[str]) -> None:
+        pass
+
+    def _insert_data_in_cell(self, data: str, cell: str, font: Font | None, alignment: Alignment | None) -> None:
         self.wb.active[cell].font = self.ws_content.base_font if font is None else font
         self.wb.active[cell].alignment = self.ws_content.base_alignment if alignment is None else alignment
         self.wb.active[cell] = data
@@ -40,14 +43,10 @@ class WorkSheets:
         self.wb.save(self.path_to_workbook)
 
     def create_new_sheet(self, ws_title: str | None) -> None:
-        print(self.wb.active)
         if ws_title is not None and ws_title not in self.wb.sheetnames:
             self.wb.active = self.wb.create_sheet(ws_title)
         else:
             self.wb.active = self.wb.create_sheet()
-            print(f'Лист с именем {ws_title} уже существует!')
-            print(f'Поэтому был создан лист с названием {self.wb.active.title}')
-        print(self.wb.active)
         self.set_content_of_active_ws()
 
     def change_active_sheet(self, ws_title) -> None:
@@ -118,8 +117,3 @@ class WorkSheets:
             self.title = 'temp.xlsx'
         self.path_to_workbook = self.title
         return Workbook()
-
-# if __name__ == '__main__':
-#     a = {'c': 'D25', 'r_1': 'D16', 'c_2': 'D24'}
-#     b = (1, 1, 1)
-#     print(WorkSheetContent.change_cells(a, b))

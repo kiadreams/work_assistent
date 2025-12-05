@@ -1,8 +1,11 @@
 import os
 from src.packages.worksheets.worksheets import WorkSheets
+from src.packages.models.device import Device
+from src.packages.databases.database import create_db_tables
 
 
 if __name__ == '__main__':
+    create_db_tables()
     b_title = 'Ведомость_работ.xlsx'
     ws_first_title = 'Страница_1 V05110______'
     ws_second_title = 'Страница_2 V05110______'

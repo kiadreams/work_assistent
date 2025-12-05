@@ -1,8 +1,4 @@
-from dataclasses import dataclass
-from datetime import timedelta
 from enum import StrEnum
-
-from src.packages.device import Device
 
 
 class TypeOfWork(StrEnum):
@@ -13,14 +9,8 @@ class TypeOfWork(StrEnum):
     TESTING = 'опробование'
 
 
-@dataclass
-class Work:
-    name: str
-    device: Device
-    type_of_work: TypeOfWork
-
-
-@dataclass
-class WorkOrder:
-    numbers: int
-    dedicated_hours: timedelta
+class EmployeePosition(StrEnum):
+    ENGINEER = 'инженер'
+    ENGINEER_2_CATEGORY = 'инженер 2-ой категории'
+    ENGINEER_1_CATEGORY = 'инженер 1-ой категории'
+    LEAD_ENGINEER = 'ведущий инженер'
