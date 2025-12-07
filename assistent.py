@@ -1,8 +1,11 @@
 import os
-from src.packages.worksheets.worksheets import WorkSheets
-from src.packages.models.employees import EmployeePosition, Employee, Department
 
-from src.packages.databases.engin_db import create_db_tables
+from src.packages.worksheets.worksheets import WorkSheets
+from src.packages.models.employees import EmployeePosition, Employee, Department, Service
+from src.packages.models.devices import DeviceLocation, Device
+from src.packages.models.works import Work, WorkOrder, WorkEvent, TypeOfMaintenance
+from src.packages.models.association_tables import devices_in_works
+from src.packages.databases.database import create_db_tables
 
 
 if __name__ == '__main__':
