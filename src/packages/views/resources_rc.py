@@ -6,48 +6,50 @@
 from PySide6 import QtCore
 
 qt_resource_data = b"\
-\x00\x00\x01\xae\
+\x00\x00\x01\xc6\
 Q\
-PushButton {\x0a   \
- font-size: 14px\
-;\x0a    padding: 1\
-0px;\x0a    text-tr\
-ansform: upperca\
-se;\x0a    border-r\
-adius: 10px;\x0a   \
- background-colo\
-r: #f0f0f0;\x0a}\x0a\x0aQ\
-PushButton:hover\
- {\x0a    backgroun\
-d-color: steelbl\
-ue;\x0a    border-c\
-olor: darkblue;\x0a\
-    color: white\
-;\x0a}\x0a\x0aQPushButton\
-#psb_exit {\x0a    \
-padding: 5px;\x0a}\x0a\
-\x0aQLabel#lbl_app_\
-title {\x0a    font\
--size: 22px;\x0a   \
- font-weight: bo\
-ld;\x0a    color: b\
-lue;\x0a    text-tr\
-ansform: upperca\
-se;\x0a    text-ali\
-gn: center;\x0a}\
-\x00\x00\x00\xa3\
+PushButton {\x0d\x0a  \
+  font-size: 14p\
+x;\x0d\x0a    padding:\
+ 10px;\x0d\x0a    text\
+-transform: uppe\
+rcase;\x0d\x0a    bord\
+er-radius: 10px;\
+\x0d\x0a    background\
+-color: #f0f0f0;\
+\x0d\x0a}\x0d\x0a\x0d\x0aQPushButt\
+on:hover {\x0d\x0a    \
+background-color\
+: steelblue;\x0d\x0a  \
+  border-color: \
+darkblue;\x0d\x0a    c\
+olor: white;\x0d\x0a}\x0d\
+\x0a\x0d\x0aQPushButton#p\
+sb_exit {\x0d\x0a    p\
+adding: 5px;\x0d\x0a}\x0d\
+\x0a\x0d\x0aQLabel#lbl_ap\
+p_title {\x0d\x0a    f\
+ont-size: 22px;\x0d\
+\x0a    font-weight\
+: bold;\x0d\x0a    col\
+or: blue;\x0d\x0a    t\
+ext-transform: u\
+ppercase;\x0d\x0a    t\
+ext-align: cente\
+r;\x0d\x0a}\
+\x00\x00\x00\xa6\
 Q\
-MainWindow {\x0a   \
- background-colo\
-r: qlineargradie\
-nt(spread:pad, x\
-1:0, y1:0, x2:1,\
- y2:1, stop:0 rg\
-ba(188, 81, 255,\
- 247), stop:0.95\
-9596 rgba(140, 2\
-55, 255, 255));\x0a\
-}\x0a\
+MainWindow {\x0d\x0a  \
+  background-col\
+or: qlineargradi\
+ent(spread:pad, \
+x1:0, y1:0, x2:1\
+, y2:1, stop:0 r\
+gba(188, 81, 255\
+, 247), stop:0.9\
+59596 rgba(140, \
+255, 255, 255));\
+\x0d\x0a}\x0d\x0a\
 "
 
 qt_resource_name = b"\
@@ -73,9 +75,9 @@ qt_resource_struct = b"\
 \x00\x00\x00\x00\x00\x02\x00\x00\x00\x02\x00\x00\x00\x02\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x00\x12\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\
-\x00\x00\x01\x9b2U#y\
-\x00\x00\x00>\x00\x00\x00\x00\x00\x01\x00\x00\x01\xb2\
-\x00\x00\x01\x9b2U#r\
+\x00\x00\x01\x9b9\xe8\xf0\xf0\
+\x00\x00\x00>\x00\x00\x00\x00\x00\x01\x00\x00\x01\xca\
+\x00\x00\x01\x9b9\xe8\xf0\xf0\
 "
 
 def qInitResources():

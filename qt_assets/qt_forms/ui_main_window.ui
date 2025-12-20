@@ -37,12 +37,12 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <widget class="QStackedWidget" name="stcWdgt_windows">
+     <widget class="QStackedWidget" name="stackedWidget_windows">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="page_1_main_menu"/>
-      <widget class="QWidget" name="page_2_report_creation"/>
+      <widget class="QWidget" name="page_0_main_menu"/>
+      <widget class="QWidget" name="page_0_report_creation"/>
      </widget>
     </item>
    </layout>

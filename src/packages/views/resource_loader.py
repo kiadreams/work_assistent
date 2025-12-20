@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import tomllib
 
 from pathlib import Path
 
@@ -109,12 +110,21 @@ def compile_ui_to_py() -> None:
             sys.exit(1)
 
 
-# if '__main__' != __name__:
-    # path_bin_env= Path(sys.executable).parent
-    # ui_file_dir = Path('qt_assets/qt_forms')
-    # ui_py_file_dir = Path('src/packages/views/forms')
-    # compile_ui_to_py(ui_file_dir, ui_py_file_dir, path_bin_env, sys.platform)
+def get_version_from_file() -> str:
+    """
+    Читает версию напрямую из файла pyproject.toml.
+    """
+    # Находим корень проекта относительно текущего скрипта
+    project_root = Path.cwd()
+    print(project_root)
+    toml_file = project_root / 'pyproject.toml'
 
-    # qrc_file_path = Path('resources.qrc')
-    # output_py_file_path = Path('src/packages/views/resources_rc.py')
-    # compile_qrc_to_py(qrc_file_path, output_py_file_path, path_bin_env, sys.platform)
+    if not toml_file.exists():
+        return 'N/A'
+
+    with open(toml_file, 'rb') as f:
+        data = tomllib.load(f)
+
+    # Извлекаем версию по ключам [project] и version
+    version = data.get('project', {}).get('version', 'N/A')
+    return version

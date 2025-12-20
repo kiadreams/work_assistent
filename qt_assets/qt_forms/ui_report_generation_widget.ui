@@ -30,7 +30,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="psb_go_to_main_menu">
+      <widget class="QPushButton" name="pushButton_go_to_main_menu">
        <property name="text">
         <string>главное меню</string>
        </property>
@@ -43,7 +43,7 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <widget class="QPushButton" name="psb_groups">
+        <widget class="QPushButton" name="pushButton_services">
          <property name="text">
           <string>подразделения</string>
          </property>
@@ -56,7 +56,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="pushButton_staff">
          <property name="text">
           <string>персонал</string>
          </property>
@@ -69,7 +69,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="pushButton_work_types">
          <property name="text">
           <string>виды работ</string>
          </property>
@@ -82,7 +82,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="pushButton_works">
          <property name="text">
           <string>работы</string>
          </property>
@@ -95,7 +95,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="pushButton_orders">
          <property name="text">
           <string>заказы</string>
          </property>
@@ -108,7 +108,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="pushButton_work_events">
          <property name="text">
           <string>рабочие события</string>
          </property>
@@ -136,100 +136,16 @@
       </layout>
      </item>
      <item>
-      <widget class="QStackedWidget" name="stackedWidget_2">
+      <widget class="QStackedWidget" name="stackedWidget_types_of_reports">
        <property name="currentIndex">
-        <number>3</number>
+        <number>5</number>
        </property>
-       <widget class="QWidget" name="page_3">
-        <widget class="QLabel" name="label">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>300</y>
-           <width>181</width>
-           <height>18</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>подразделения</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="page_4">
-        <widget class="QLabel" name="label_2">
-         <property name="geometry">
-          <rect>
-           <x>260</x>
-           <y>260</y>
-           <width>161</width>
-           <height>18</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>персонал</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="page_5">
-        <widget class="QLabel" name="label_3">
-         <property name="geometry">
-          <rect>
-           <x>270</x>
-           <y>320</y>
-           <width>161</width>
-           <height>18</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>виды работ</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="page_6">
-        <widget class="QLabel" name="label_4">
-         <property name="geometry">
-          <rect>
-           <x>320</x>
-           <y>260</y>
-           <width>161</width>
-           <height>18</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>работы</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="page_7">
-        <widget class="QLabel" name="label_5">
-         <property name="geometry">
-          <rect>
-           <x>300</x>
-           <y>300</y>
-           <width>161</width>
-           <height>18</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>заказы</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="page_8">
-        <widget class="QLabel" name="label_6">
-         <property name="geometry">
-          <rect>
-           <x>240</x>
-           <y>270</y>
-           <width>161</width>
-           <height>18</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>рабочие события</string>
-         </property>
-        </widget>
-       </widget>
+       <widget class="QWidget" name="page_0_services_and_goups"/>
+       <widget class="QWidget" name="page_1_staff"/>
+       <widget class="QWidget" name="page_2_types_of_work"/>
+       <widget class="QWidget" name="page_3_works"/>
+       <widget class="QWidget" name="page_4_orders"/>
+       <widget class="QWidget" name="page_5_work_events"/>
       </widget>
      </item>
     </layout>

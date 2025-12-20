@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QButtonGroup, QGridLayout, QHBoxLayout,
-    QLabel, QPushButton, QSizePolicy, QSpacerItem,
-    QStackedWidget, QVBoxLayout, QWidget)
+    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QVBoxLayout, QWidget)
 
 class Ui_ReportGenerationWidget(object):
     def setupUi(self, ReportGenerationWidget):
@@ -32,10 +32,10 @@ class Ui_ReportGenerationWidget(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer_3)
 
-        self.psb_go_to_main_menu = QPushButton(ReportGenerationWidget)
-        self.psb_go_to_main_menu.setObjectName(u"psb_go_to_main_menu")
+        self.pushButton_go_to_main_menu = QPushButton(ReportGenerationWidget)
+        self.pushButton_go_to_main_menu.setObjectName(u"pushButton_go_to_main_menu")
 
-        self.horizontalLayout.addWidget(self.psb_go_to_main_menu)
+        self.horizontalLayout.addWidget(self.pushButton_go_to_main_menu)
 
 
         self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 1)
@@ -44,50 +44,50 @@ class Ui_ReportGenerationWidget(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.psb_groups = QPushButton(ReportGenerationWidget)
+        self.pushButton_services = QPushButton(ReportGenerationWidget)
         self.buttonGroup = QButtonGroup(ReportGenerationWidget)
         self.buttonGroup.setObjectName(u"buttonGroup")
         self.buttonGroup.setExclusive(True)
-        self.buttonGroup.addButton(self.psb_groups)
-        self.psb_groups.setObjectName(u"psb_groups")
-        self.psb_groups.setCheckable(True)
+        self.buttonGroup.addButton(self.pushButton_services)
+        self.pushButton_services.setObjectName(u"pushButton_services")
+        self.pushButton_services.setCheckable(True)
 
-        self.verticalLayout_4.addWidget(self.psb_groups)
+        self.verticalLayout_4.addWidget(self.pushButton_services)
 
-        self.pushButton_2 = QPushButton(ReportGenerationWidget)
-        self.buttonGroup.addButton(self.pushButton_2)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setCheckable(True)
+        self.pushButton_staff = QPushButton(ReportGenerationWidget)
+        self.buttonGroup.addButton(self.pushButton_staff)
+        self.pushButton_staff.setObjectName(u"pushButton_staff")
+        self.pushButton_staff.setCheckable(True)
 
-        self.verticalLayout_4.addWidget(self.pushButton_2)
+        self.verticalLayout_4.addWidget(self.pushButton_staff)
 
-        self.pushButton_3 = QPushButton(ReportGenerationWidget)
-        self.buttonGroup.addButton(self.pushButton_3)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setCheckable(True)
+        self.pushButton_work_types = QPushButton(ReportGenerationWidget)
+        self.buttonGroup.addButton(self.pushButton_work_types)
+        self.pushButton_work_types.setObjectName(u"pushButton_work_types")
+        self.pushButton_work_types.setCheckable(True)
 
-        self.verticalLayout_4.addWidget(self.pushButton_3)
+        self.verticalLayout_4.addWidget(self.pushButton_work_types)
 
-        self.pushButton_4 = QPushButton(ReportGenerationWidget)
-        self.buttonGroup.addButton(self.pushButton_4)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setCheckable(True)
+        self.pushButton_works = QPushButton(ReportGenerationWidget)
+        self.buttonGroup.addButton(self.pushButton_works)
+        self.pushButton_works.setObjectName(u"pushButton_works")
+        self.pushButton_works.setCheckable(True)
 
-        self.verticalLayout_4.addWidget(self.pushButton_4)
+        self.verticalLayout_4.addWidget(self.pushButton_works)
 
-        self.pushButton_5 = QPushButton(ReportGenerationWidget)
-        self.buttonGroup.addButton(self.pushButton_5)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setCheckable(True)
+        self.pushButton_orders = QPushButton(ReportGenerationWidget)
+        self.buttonGroup.addButton(self.pushButton_orders)
+        self.pushButton_orders.setObjectName(u"pushButton_orders")
+        self.pushButton_orders.setCheckable(True)
 
-        self.verticalLayout_4.addWidget(self.pushButton_5)
+        self.verticalLayout_4.addWidget(self.pushButton_orders)
 
-        self.pushButton_6 = QPushButton(ReportGenerationWidget)
-        self.buttonGroup.addButton(self.pushButton_6)
-        self.pushButton_6.setObjectName(u"pushButton_6")
-        self.pushButton_6.setCheckable(True)
+        self.pushButton_work_events = QPushButton(ReportGenerationWidget)
+        self.buttonGroup.addButton(self.pushButton_work_events)
+        self.pushButton_work_events.setObjectName(u"pushButton_work_events")
+        self.pushButton_work_events.setCheckable(True)
 
-        self.verticalLayout_4.addWidget(self.pushButton_6)
+        self.verticalLayout_4.addWidget(self.pushButton_work_events)
 
         self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -96,46 +96,28 @@ class Ui_ReportGenerationWidget(object):
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_4)
 
-        self.stackedWidget_2 = QStackedWidget(ReportGenerationWidget)
-        self.stackedWidget_2.setObjectName(u"stackedWidget_2")
-        self.page_3 = QWidget()
-        self.page_3.setObjectName(u"page_3")
-        self.label = QLabel(self.page_3)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(330, 300, 181, 18))
-        self.stackedWidget_2.addWidget(self.page_3)
-        self.page_4 = QWidget()
-        self.page_4.setObjectName(u"page_4")
-        self.label_2 = QLabel(self.page_4)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(260, 260, 161, 18))
-        self.stackedWidget_2.addWidget(self.page_4)
-        self.page_5 = QWidget()
-        self.page_5.setObjectName(u"page_5")
-        self.label_3 = QLabel(self.page_5)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(270, 320, 161, 18))
-        self.stackedWidget_2.addWidget(self.page_5)
-        self.page_6 = QWidget()
-        self.page_6.setObjectName(u"page_6")
-        self.label_4 = QLabel(self.page_6)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(320, 260, 161, 18))
-        self.stackedWidget_2.addWidget(self.page_6)
-        self.page_7 = QWidget()
-        self.page_7.setObjectName(u"page_7")
-        self.label_5 = QLabel(self.page_7)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(300, 300, 161, 18))
-        self.stackedWidget_2.addWidget(self.page_7)
-        self.page_8 = QWidget()
-        self.page_8.setObjectName(u"page_8")
-        self.label_6 = QLabel(self.page_8)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setGeometry(QRect(240, 270, 161, 18))
-        self.stackedWidget_2.addWidget(self.page_8)
+        self.stackedWidget_types_of_reports = QStackedWidget(ReportGenerationWidget)
+        self.stackedWidget_types_of_reports.setObjectName(u"stackedWidget_types_of_reports")
+        self.page_0_services_and_goups = QWidget()
+        self.page_0_services_and_goups.setObjectName(u"page_0_services_and_goups")
+        self.stackedWidget_types_of_reports.addWidget(self.page_0_services_and_goups)
+        self.page_1_staff = QWidget()
+        self.page_1_staff.setObjectName(u"page_1_staff")
+        self.stackedWidget_types_of_reports.addWidget(self.page_1_staff)
+        self.page_2_types_of_work = QWidget()
+        self.page_2_types_of_work.setObjectName(u"page_2_types_of_work")
+        self.stackedWidget_types_of_reports.addWidget(self.page_2_types_of_work)
+        self.page_3_works = QWidget()
+        self.page_3_works.setObjectName(u"page_3_works")
+        self.stackedWidget_types_of_reports.addWidget(self.page_3_works)
+        self.page_4_orders = QWidget()
+        self.page_4_orders.setObjectName(u"page_4_orders")
+        self.stackedWidget_types_of_reports.addWidget(self.page_4_orders)
+        self.page_5_work_events = QWidget()
+        self.page_5_work_events.setObjectName(u"page_5_work_events")
+        self.stackedWidget_types_of_reports.addWidget(self.page_5_work_events)
 
-        self.horizontalLayout_2.addWidget(self.stackedWidget_2)
+        self.horizontalLayout_2.addWidget(self.stackedWidget_types_of_reports)
 
 
         self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
@@ -143,7 +125,7 @@ class Ui_ReportGenerationWidget(object):
 
         self.retranslateUi(ReportGenerationWidget)
 
-        self.stackedWidget_2.setCurrentIndex(3)
+        self.stackedWidget_types_of_reports.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(ReportGenerationWidget)
@@ -151,18 +133,12 @@ class Ui_ReportGenerationWidget(object):
 
     def retranslateUi(self, ReportGenerationWidget):
         ReportGenerationWidget.setWindowTitle(QCoreApplication.translate("ReportGenerationWidget", u"Form", None))
-        self.psb_go_to_main_menu.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0433\u043b\u0430\u0432\u043d\u043e\u0435 \u043c\u0435\u043d\u044e", None))
-        self.psb_groups.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u043f\u043e\u0434\u0440\u0430\u0437\u0434\u0435\u043b\u0435\u043d\u0438\u044f", None))
-        self.pushButton_2.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b", None))
-        self.pushButton_3.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0432\u0438\u0434\u044b \u0440\u0430\u0431\u043e\u0442", None))
-        self.pushButton_4.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0440\u0430\u0431\u043e\u0442\u044b", None))
-        self.pushButton_5.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0437\u0430\u043a\u0430\u0437\u044b", None))
-        self.pushButton_6.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0440\u0430\u0431\u043e\u0447\u0438\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u044f", None))
-        self.label.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u043f\u043e\u0434\u0440\u0430\u0437\u0434\u0435\u043b\u0435\u043d\u0438\u044f", None))
-        self.label_2.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b", None))
-        self.label_3.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0432\u0438\u0434\u044b \u0440\u0430\u0431\u043e\u0442", None))
-        self.label_4.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0440\u0430\u0431\u043e\u0442\u044b", None))
-        self.label_5.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0437\u0430\u043a\u0430\u0437\u044b", None))
-        self.label_6.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0440\u0430\u0431\u043e\u0447\u0438\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u044f", None))
+        self.pushButton_go_to_main_menu.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0433\u043b\u0430\u0432\u043d\u043e\u0435 \u043c\u0435\u043d\u044e", None))
+        self.pushButton_services.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u043f\u043e\u0434\u0440\u0430\u0437\u0434\u0435\u043b\u0435\u043d\u0438\u044f", None))
+        self.pushButton_staff.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b", None))
+        self.pushButton_work_types.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0432\u0438\u0434\u044b \u0440\u0430\u0431\u043e\u0442", None))
+        self.pushButton_works.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0440\u0430\u0431\u043e\u0442\u044b", None))
+        self.pushButton_orders.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0437\u0430\u043a\u0430\u0437\u044b", None))
+        self.pushButton_work_events.setText(QCoreApplication.translate("ReportGenerationWidget", u"\u0440\u0430\u0431\u043e\u0447\u0438\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u044f", None))
     # retranslateUi
 

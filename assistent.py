@@ -16,23 +16,23 @@ from src.packages.views.resource_loader import compile_ui_to_py, compile_qrc_to_
 # from src.packages.databases.database import create_db_tables
 
 
-def get_version_from_file() -> str:
-    """
-    Читает версию напрямую из файла pyproject.toml.
-    """
-    # Находим корень проекта относительно текущего скрипта
-    project_root = Path(__file__).resolve().parent
-    toml_file = project_root / 'pyproject.toml'
-
-    if not toml_file.exists():
-        return 'N/A'
-
-    with open(toml_file, 'rb') as f:
-        data = tomllib.load(f)
-
-    # Извлекаем версию по ключам [project] и version
-    version = data.get('project', {}).get('version', 'N/A')
-    return version
+# def get_version_from_file() -> str:
+#     """
+#     Читает версию напрямую из файла pyproject.toml.
+#     """
+#     # Находим корень проекта относительно текущего скрипта
+#     project_root = Path(__file__).resolve().parent
+#     toml_file = project_root / 'pyproject.toml'
+#
+#     if not toml_file.exists():
+#         return 'N/A'
+#
+#     with open(toml_file, 'rb') as f:
+#         data = tomllib.load(f)
+#
+#     # Извлекаем версию по ключам [project] и version
+#     version = data.get('project', {}).get('version', 'N/A')
+#     return version
 
 
 if __name__ == '__main__':
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     from src.packages.views.managers import main_window as mw
 
     app = QtWidgets.QApplication(sys.argv)
-    work_assistent = mw.MainWindow(get_version_from_file())
+    work_assistent = mw.MainWindow()
 
     # Показываем главное окно
     work_assistent.show()

@@ -18,3 +18,12 @@ class MainWindowPages(PageStructure):
     MAIN_MENU = 0
     REPORT_CREATION = 1
     PROTOCOL_CREATION = 2
+
+
+class ReportGenerationPages(PageStructure):
+    SERVICES_AND_GROUPS = 0
+    STAFF = 1
+    TYPES_OF_WORK = 2
+    WORKS = 3
+    ORDERS = 4
+    WORK_EVENTS = 5

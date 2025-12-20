@@ -35,22 +35,22 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_3 = QVBoxLayout(self.centralwidget)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.stcWdgt_windows = QStackedWidget(self.centralwidget)
-        self.stcWdgt_windows.setObjectName(u"stcWdgt_windows")
-        self.page_1_main_menu = QWidget()
-        self.page_1_main_menu.setObjectName(u"page_1_main_menu")
-        self.stcWdgt_windows.addWidget(self.page_1_main_menu)
-        self.page_2_report_creation = QWidget()
-        self.page_2_report_creation.setObjectName(u"page_2_report_creation")
-        self.stcWdgt_windows.addWidget(self.page_2_report_creation)
+        self.stackedWidget_windows = QStackedWidget(self.centralwidget)
+        self.stackedWidget_windows.setObjectName(u"stackedWidget_windows")
+        self.page_0_main_menu = QWidget()
+        self.page_0_main_menu.setObjectName(u"page_0_main_menu")
+        self.stackedWidget_windows.addWidget(self.page_0_main_menu)
+        self.page_0_report_creation = QWidget()
+        self.page_0_report_creation.setObjectName(u"page_0_report_creation")
+        self.stackedWidget_windows.addWidget(self.page_0_report_creation)
 
-        self.verticalLayout_3.addWidget(self.stcWdgt_windows)
+        self.verticalLayout_3.addWidget(self.stackedWidget_windows)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stcWdgt_windows.setCurrentIndex(0)
+        self.stackedWidget_windows.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
