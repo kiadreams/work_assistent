@@ -29,11 +29,6 @@ class Ui_OrderReportsWidget(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_company_name = QLabel(OrderReportsWidget)
-        self.label_company_name.setObjectName(u"label_company_name")
-
-        self.verticalLayout_2.addWidget(self.label_company_name)
-
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalSpacer_3 = QSpacerItem(48, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -150,7 +145,6 @@ class Ui_OrderReportsWidget(object):
 
     def retranslateUi(self, OrderReportsWidget):
         OrderReportsWidget.setWindowTitle(QCoreApplication.translate("OrderReportsWidget", u"Form", None))
-        self.label_company_name.setText(QCoreApplication.translate("OrderReportsWidget", u"\u041f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0435: \u041a\u0443\u0431\u0430\u043d\u0441\u043a\u043e\u0435 \u041f\u041c\u042d\u0421", None))
         self.label_company_name_2.setText(QCoreApplication.translate("OrderReportsWidget", u"\u041f\u0435\u0440\u0435\u0447\u0435\u043d\u044c \u0437\u0430\u043a\u0430\u0437\u043e\u0432 \u0437\u0430 \u043f\u0435\u0440\u0438\u043e\u0434:", None))
         self.label_prefix_start_period.setText(QCoreApplication.translate("OrderReportsWidget", u"\u0441:", None))
         self.dateEdit_start_period.setDisplayFormat(QCoreApplication.translate("OrderReportsWidget", u"MM.yyyy", None))

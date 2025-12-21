@@ -13,122 +13,61 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_go_to_main_menu">
-       <property name="text">
-        <string>главное меню</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="pushButton_services">
-         <property name="text">
-          <string>подразделения</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_staff">
-         <property name="text">
-          <string>персонал</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_work_types">
-         <property name="text">
-          <string>виды работ</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_works">
-         <property name="text">
-          <string>работы</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_orders">
-         <property name="text">
-          <string>заказы</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_work_events">
-         <property name="text">
-          <string>рабочие события</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_4">
+        <spacer name="horizontalSpacer_3">
          <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_go_to_main_menu">
+         <property name="text">
+          <string>главное меню</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_prefix_company">
+         <property name="text">
+          <string>Выбрать предприятие:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox_company">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -136,17 +75,98 @@
       </layout>
      </item>
      <item>
-      <widget class="QStackedWidget" name="stackedWidget_types_of_reports">
-       <property name="currentIndex">
-        <number>5</number>
-       </property>
-       <widget class="QWidget" name="page_0_services_and_goups"/>
-       <widget class="QWidget" name="page_1_staff"/>
-       <widget class="QWidget" name="page_2_types_of_work"/>
-       <widget class="QWidget" name="page_3_works"/>
-       <widget class="QWidget" name="page_4_orders"/>
-       <widget class="QWidget" name="page_5_work_events"/>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="pushButton_services">
+           <property name="text">
+            <string>подразделения</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_staff">
+           <property name="text">
+            <string>персонал</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_work_types">
+           <property name="text">
+            <string>виды работ</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_works">
+           <property name="text">
+            <string>работы</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_orders">
+           <property name="text">
+            <string>заказы</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_work_events">
+           <property name="text">
+            <string>рабочие события</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QStackedWidget" name="stackedWidget_types_of_reports">
+         <property name="currentIndex">
+          <number>5</number>
+         </property>
+         <widget class="QWidget" name="page_0_services_and_goups"/>
+         <widget class="QWidget" name="page_1_staff"/>
+         <widget class="QWidget" name="page_2_types_of_work"/>
+         <widget class="QWidget" name="page_3_works"/>
+         <widget class="QWidget" name="page_4_orders"/>
+         <widget class="QWidget" name="page_5_work_events"/>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
@@ -154,11 +174,4 @@
  </widget>
  <resources/>
  <connections/>
- <buttongroups>
-  <buttongroup name="buttonGroup">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
- </buttongroups>
 </ui>

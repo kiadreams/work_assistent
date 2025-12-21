@@ -1,11 +1,11 @@
 from PySide6 import QtWidgets
 
-from .base_app_widget import BaseAppWidget
+from .base_widgets import BaseAppWidgetMixin
 from ..resource_loader import QtStyleResources
 from ..forms.ui_work_types_report_widget import Ui_WorkTypeReportsWidget
 
 
-class WorkTypeReport(QtWidgets.QWidget, Ui_WorkTypeReportsWidget, BaseAppWidget):
+class WorkTypeReport(QtWidgets.QWidget, Ui_WorkTypeReportsWidget, BaseAppWidgetMixin):
 
     def __init__(self) -> None:
         super().__init__()
@@ -13,7 +13,7 @@ class WorkTypeReport(QtWidgets.QWidget, Ui_WorkTypeReportsWidget, BaseAppWidget)
         self.__setup_connections()
 
     def __init_content_widget(self) -> None:
-        self._init_widget_style(QtStyleResources.MAIN_MENU_STYLE)
+        self._init_widget_style(QtStyleResources.REPORT_WIDGET_STYLE)
 
     def __setup_connections(self) -> None:
         pass

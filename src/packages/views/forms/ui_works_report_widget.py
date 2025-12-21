@@ -29,11 +29,6 @@ class Ui_WorkReportsWidget(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_company_name = QLabel(WorkReportsWidget)
-        self.label_company_name.setObjectName(u"label_company_name")
-
-        self.verticalLayout_2.addWidget(self.label_company_name)
-
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalSpacer_3 = QSpacerItem(48, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -139,7 +134,6 @@ class Ui_WorkReportsWidget(object):
 
     def retranslateUi(self, WorkReportsWidget):
         WorkReportsWidget.setWindowTitle(QCoreApplication.translate("WorkReportsWidget", u"Form", None))
-        self.label_company_name.setText(QCoreApplication.translate("WorkReportsWidget", u"\u041f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0435: \u041a\u0443\u0431\u0430\u043d\u0441\u043a\u043e\u0435 \u041f\u041c\u042d\u0421", None))
         self.label_period_name.setText(QCoreApplication.translate("WorkReportsWidget", u"\u041f\u0435\u0440\u0435\u0447\u0435\u043d\u044c \u0440\u0430\u0431\u043e\u0442 \u0437\u0430 \u043f\u0435\u0440\u0438\u043e\u0434:", None))
         self.label_prefix_start_period.setText(QCoreApplication.translate("WorkReportsWidget", u"\u0441:", None))
         self.label_prefix_end_period.setText(QCoreApplication.translate("WorkReportsWidget", u"\u043f\u043e:", None))

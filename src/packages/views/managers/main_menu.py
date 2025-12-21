@@ -1,13 +1,13 @@
 from PySide6 import QtWidgets
 from PySide6.QtCore import Signal
 
-from .base_app_widget import BaseAppWidget
+from .base_widgets import BaseAppWidgetMixin
 from ..resource_loader import QtStyleResources
 from ..views_structure import MainWindowPages
 from ..forms.ui_main_menu_widget import Ui_MainMenuWidget
 
 
-class MainMenu(QtWidgets.QWidget, Ui_MainMenuWidget, BaseAppWidget):
+class MainMenu(QtWidgets.QWidget, Ui_MainMenuWidget, BaseAppWidgetMixin):
 
     change_page_signal = Signal(int)
     close_app_signal = Signal()

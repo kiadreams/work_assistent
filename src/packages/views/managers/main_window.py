@@ -1,6 +1,6 @@
 from PySide6 import QtWidgets
 
-from .base_app_widget import BaseAppWidget
+from .base_widgets import BaseAppWidgetMixin
 from .main_menu import MainMenu
 from .report_generator import ReportGenerator
 from ..resource_loader import QtStyleResources
@@ -8,7 +8,7 @@ from ..forms.ui_main_window import Ui_MainWindow
 from ..views_structure import MainWindowPages
 
 
-class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow, BaseAppWidget):
+class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow, BaseAppWidgetMixin):
     def __init__(self) -> None:
         super().__init__()
         self.main_menu = MainMenu()
@@ -23,6 +23,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow, BaseAppWidget):
         self.stackedWidget_windows.insertWidget(MainWindowPages.REPORT_CREATION,
                                                 self.get_widget_to_insert(self.report_generator))
         self.stackedWidget_windows.setCurrentIndex(MainWindowPages.MAIN_MENU)
+        self.resize(1280, 800)
 
     def __setup_connections(self) -> None:
         self.main_menu.close_app_signal.connect(self.close)

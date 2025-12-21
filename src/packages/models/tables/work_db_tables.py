@@ -3,10 +3,10 @@ import datetime
 from sqlalchemy import String, ForeignKey, SmallInteger, Date, Time, extract, func
 from sqlalchemy.orm import MappedAsDataclass, Mapped, mapped_column, relationship
 
-from . import association_tables
-from . import devices
-from . import employees
-from ..databases.database import Base
+from . import employee_db_tables
+from . import device_db_tables
+from src.packages.databases.database import Base
+from . import association_db_tables
 
 
 class TypeOfMaintenance(MappedAsDataclass, Base):
@@ -25,7 +25,7 @@ class WorkOrder(MappedAsDataclass, Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, init=False)
 
-    work_order: Mapped[list['Work']] = relationship(back_populates='work_order')
+    works: Mapped[list['Work']] = relationship(back_populates='work_order')
 
     number: Mapped[str] = mapped_column(String(20), nullable=False, default='V05110______')
 
@@ -36,10 +36,10 @@ class Work(MappedAsDataclass, Base):
     id: Mapped[int] = mapped_column(primary_key=True, init=False)
     name: Mapped[str] = mapped_column(String(50), nullable=False)
 
-    type_of_maintenance: Mapped[TypeOfMaintenance] = relationship(back_populates='works')
-    work_order: Mapped[WorkOrder] = relationship(back_populates='works')
+    type_of_maintenance: Mapped['TypeOfMaintenance'] = relationship(back_populates='works')
+    work_order: Mapped['WorkOrder'] = relationship(back_populates='works')
     events: Mapped['WorkEvent'] = relationship(back_populates='work')
-    devices: Mapped[list['devices.Device']] = relationship(secondary=association_tables.devices_in_works,
+    devices: Mapped[list['device_db_tables.Device']] = relationship(secondary=association_db_tables.devices_in_works,
                                                            back_populates='works')
 
     year: Mapped[int] = mapped_column(SmallInteger,
@@ -62,7 +62,7 @@ class WorkEvent(MappedAsDataclass, Base):
     date: Mapped[datetime.date] = mapped_column(Date, nullable=False, server_default=func.now())
 
     work: Mapped[Work] = relationship(back_populates='events')
-    employee: Mapped['employees.Employee'] = relationship(back_populates='work_event')
+    employee: Mapped['employee_db_tables.Employee'] = relationship(back_populates='work_events')
 
     start_time: Mapped[datetime.time] = mapped_column(Time, nullable=False, default=datetime.time(8, 30, 0))
     end_time: Mapped[datetime.time] = mapped_column(Time, nullable=False, default=datetime.time(16, 30, 0))

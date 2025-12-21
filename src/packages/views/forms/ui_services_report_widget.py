@@ -28,11 +28,6 @@ class Ui_ServiceReportsWidget(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.label_company_name = QLabel(ServiceReportsWidget)
-        self.label_company_name.setObjectName(u"label_company_name")
-
-        self.verticalLayout_3.addWidget(self.label_company_name)
-
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -53,15 +48,20 @@ class Ui_ServiceReportsWidget(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.pushButton_change_service_name = QPushButton(ServiceReportsWidget)
-        self.pushButton_change_service_name.setObjectName(u"pushButton_change_service_name")
+        self.pushButton_edit_service = QPushButton(ServiceReportsWidget)
+        self.pushButton_edit_service.setObjectName(u"pushButton_edit_service")
 
-        self.horizontalLayout.addWidget(self.pushButton_change_service_name)
+        self.horizontalLayout.addWidget(self.pushButton_edit_service)
 
         self.pushButton_add_service = QPushButton(ServiceReportsWidget)
         self.pushButton_add_service.setObjectName(u"pushButton_add_service")
 
         self.horizontalLayout.addWidget(self.pushButton_add_service)
+
+        self.pushButton_remove_service = QPushButton(ServiceReportsWidget)
+        self.pushButton_remove_service.setObjectName(u"pushButton_remove_service")
+
+        self.horizontalLayout.addWidget(self.pushButton_remove_service)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -88,15 +88,20 @@ class Ui_ServiceReportsWidget(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.pushButton_change_group_name = QPushButton(ServiceReportsWidget)
-        self.pushButton_change_group_name.setObjectName(u"pushButton_change_group_name")
+        self.pushButton_edit_group = QPushButton(ServiceReportsWidget)
+        self.pushButton_edit_group.setObjectName(u"pushButton_edit_group")
 
-        self.horizontalLayout_2.addWidget(self.pushButton_change_group_name)
+        self.horizontalLayout_2.addWidget(self.pushButton_edit_group)
 
         self.pushButton_add_group = QPushButton(ServiceReportsWidget)
         self.pushButton_add_group.setObjectName(u"pushButton_add_group")
 
         self.horizontalLayout_2.addWidget(self.pushButton_add_group)
+
+        self.pushButton_remove_group = QPushButton(ServiceReportsWidget)
+        self.pushButton_remove_group.setObjectName(u"pushButton_remove_group")
+
+        self.horizontalLayout_2.addWidget(self.pushButton_remove_group)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
@@ -132,14 +137,15 @@ class Ui_ServiceReportsWidget(object):
 
     def retranslateUi(self, ServiceReportsWidget):
         ServiceReportsWidget.setWindowTitle(QCoreApplication.translate("ServiceReportsWidget", u"Form", None))
-        self.label_company_name.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u041f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0435: \u041a\u0443\u0431\u0430\u043d\u0441\u043a\u043e\u0435 \u041f\u041c\u042d\u0421", None))
         self.label_sirvice_list_title.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0441\u043b\u0443\u0436\u0431\u044b", None))
-        self.pushButton_change_service_name.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043c\u044f \u0441\u043b\u0443\u0436\u0431\u044b", None))
+        self.pushButton_edit_service.setText(QCoreApplication.translate("ServiceReportsWidget", u" \u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0441\u043b\u0443\u0436\u0431\u0443", None))
         self.pushButton_add_service.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0441\u043b\u0443\u0436\u0431\u0443", None))
+        self.pushButton_remove_service.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0441\u043b\u0443\u0436\u0431\u0443", None))
         self.pushButton_show_all_services.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0434\u0430\u043d\u043d\u044b\u0435 \u0432\u0441\u0435\u0445 \u0441\u043b\u0443\u0436\u0431", None))
-        self.label_group_list_title.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0441\u043b\u0443\u0436\u0431\u044b", None))
-        self.pushButton_change_group_name.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043c\u044f \u0433\u0440\u0443\u043f\u043f\u044b", None))
+        self.label_group_list_title.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0433\u0440\u0443\u043f\u043f\u044b", None))
+        self.pushButton_edit_group.setText(QCoreApplication.translate("ServiceReportsWidget", u" \u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0433\u0440\u0443\u043f\u043f\u0443", None))
         self.pushButton_add_group.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0433\u0440\u0443\u043f\u043f\u0443", None))
+        self.pushButton_remove_group.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0433\u0440\u0443\u043f\u043f\u0443", None))
         self.pushButton_show_all_groups.setText(QCoreApplication.translate("ServiceReportsWidget", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0433\u0440\u0443\u043f\u043f\u044b \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0439 \u0441\u043b\u0443\u0436\u0431\u044b", None))
     # retranslateUi
 

@@ -1,20 +1,17 @@
+import os
 import sys
-import tomllib
 
-from pathlib import Path
-
-from PySide6 import QtWidgets
-
+from src.packages.models.tables.employee_db_tables import Service
 from src.packages.views.resource_loader import compile_ui_to_py, compile_qrc_to_py
-
 # from src.packages.views.main_window import Ui_MainWindow
 # from src.packages.worksheets.worksheets import WorkSheets
-# from src.packages.models.employees import EmployeePosition, Employee, Department, Service
-# from src.packages.models.devices import DeviceLocation, Device
-# from src.packages.models.works import Work, WorkOrder, WorkEvent, TypeOfMaintenance
-# from src.packages.models.association_tables import devices_in_works
-# from src.packages.databases.database import create_db_tables
 
+from src.packages.models.tables.device_db_tables import Device, DeviceLocation
+from src.packages.models.tables.employee_db_tables import Employee, EmployeePosition, Service, Department
+from src.packages.models.tables.work_db_tables import Work, WorkOrder, WorkEvent
+from src.packages.databases.database import create_db_tables
+
+from PySide6 import QtWidgets
 
 # def get_version_from_file() -> str:
 #     """
@@ -39,6 +36,30 @@ if __name__ == '__main__':
     compile_ui_to_py()
     compile_qrc_to_py()
 
+    create_db_tables()
+    b_title = 'Ведомость_работ.xlsx'
+    # ws_first_title = 'Страница_1 V05110______'
+    # ws_second_title = 'Страница_2 V05110______'
+    # ws_third_title = 'Страница_2 V05110______'
+    if os.path.exists(b_title):
+        os.remove(b_title)
+    # work_sheet = WorkSheets(title=b_title)
+    # work_sheet.set_content_of_active_ws()
+    # work_sheet.change_active_ws_title(ws_first_title)
+    # work_sheet.create_new_sheet(ws_second_title)
+    # work_sheet.create_new_sheet(ws_third_title)
+    # work_sheet.save_work_sheet()
+
+
+    from src.packages.models.view_service_models import ViewServiceModel
+    model = ViewServiceModel('КПМЭС')
+    print(model.services)
+    # model.add_new_service(('СРЗАиАСУТП', 'Служба РЗАиАСУТП'))
+    # model.add_new_service(('Сл АСУ ТП', 'Сл РЗА и АСУ ТП'))
+    # model.add_new_service(('это просто так', 'и это'))
+    # model.add_new_service(('dsadfdf', 'asdfadsfdsfsdafsd'))
+    # model.load_all_services()
+
     from src.packages.views.managers import main_window as mw
 
     app = QtWidgets.QApplication(sys.argv)
@@ -49,17 +70,3 @@ if __name__ == '__main__':
 
     # Запускаем основной цикл обработки событий
     sys.exit(app.exec())
-
-    # create_db_tables()
-    # b_title = 'Ведомость_работ.xlsx'
-    # ws_first_title = 'Страница_1 V05110______'
-    # ws_second_title = 'Страница_2 V05110______'
-    # ws_third_title = 'Страница_2 V05110______'
-    # if os.path.exists(b_title):
-    #     os.remove(b_title)
-    # work_sheet = WorkSheets(title=b_title)
-    # work_sheet.set_content_of_active_ws()
-    # work_sheet.change_active_ws_title(ws_first_title)
-    # work_sheet.create_new_sheet(ws_second_title)
-    # work_sheet.create_new_sheet(ws_third_title)
-    # work_sheet.save_work_sheet()

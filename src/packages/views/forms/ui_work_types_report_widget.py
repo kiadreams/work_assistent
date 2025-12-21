@@ -26,11 +26,6 @@ class Ui_WorkTypeReportsWidget(object):
         WorkTypeReportsWidget.resize(886, 739)
         self.verticalLayout_2 = QVBoxLayout(WorkTypeReportsWidget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_company_name = QLabel(WorkTypeReportsWidget)
-        self.label_company_name.setObjectName(u"label_company_name")
-
-        self.verticalLayout_2.addWidget(self.label_company_name)
-
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -102,7 +97,6 @@ class Ui_WorkTypeReportsWidget(object):
 
     def retranslateUi(self, WorkTypeReportsWidget):
         WorkTypeReportsWidget.setWindowTitle(QCoreApplication.translate("WorkTypeReportsWidget", u"Form", None))
-        self.label_company_name.setText(QCoreApplication.translate("WorkTypeReportsWidget", u"\u041f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0435: \u041a\u0443\u0431\u0430\u043d\u0441\u043a\u043e\u0435 \u041f\u041c\u042d\u0421", None))
         self.label.setText(QCoreApplication.translate("WorkTypeReportsWidget", u"\u0412\u0438\u0434\u044b \u0440\u0430\u0431\u043e\u0442:", None))
         self.pushButton.setText(QCoreApplication.translate("WorkTypeReportsWidget", u"\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c", None))
         self.pushButton_2.setText(QCoreApplication.translate("WorkTypeReportsWidget", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))

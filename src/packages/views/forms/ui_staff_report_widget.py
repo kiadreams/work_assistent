@@ -26,11 +26,6 @@ class Ui_StaffReportsWidget(object):
         StaffReportsWidget.resize(886, 739)
         self.verticalLayout_2 = QVBoxLayout(StaffReportsWidget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_company_name = QLabel(StaffReportsWidget)
-        self.label_company_name.setObjectName(u"label_company_name")
-
-        self.verticalLayout_2.addWidget(self.label_company_name)
-
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -122,7 +117,6 @@ class Ui_StaffReportsWidget(object):
 
     def retranslateUi(self, StaffReportsWidget):
         StaffReportsWidget.setWindowTitle(QCoreApplication.translate("StaffReportsWidget", u"Form", None))
-        self.label_company_name.setText(QCoreApplication.translate("StaffReportsWidget", u"\u041f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0435: \u041a\u0443\u0431\u0430\u043d\u0441\u043a\u043e\u0435 \u041f\u041c\u042d\u0421", None))
         self.label_sirvice_list_title.setText(QCoreApplication.translate("StaffReportsWidget", u" \u0421\u043b\u0443\u0436\u0431\u0430", None))
         self.label_group_list_title.setText(QCoreApplication.translate("StaffReportsWidget", u"\u0413\u0440\u0443\u043f\u043f\u0430 / \u0443\u0447\u0430\u0441\u0442\u043e\u043a", None))
         self.label.setText(QCoreApplication.translate("StaffReportsWidget", u"\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b", None))
