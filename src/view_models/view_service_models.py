@@ -1,7 +1,7 @@
 from sqlalchemy import select
 
 from .base_view_model import BaseViewModel
-from .tables.employee_db_tables import Service
+from ..entities.service import Service
 
 
 class ViewServiceModel(BaseViewModel):
@@ -56,7 +56,8 @@ class ViewServiceModel(BaseViewModel):
             ][0]
 
     def delete_current_service(self) -> None:
-        self.session.delete(self.__current_service)
-        self.session.commit()
-        self.__services.remove(self.__current_service)
-        self.set_first_service()
+        if self.__current_service is not None:
+            self.session.delete(self.__current_service)
+            self.session.commit()
+            self.__services.remove(self.__current_service)
+            self.set_first_service()
