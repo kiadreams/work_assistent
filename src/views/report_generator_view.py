@@ -11,7 +11,7 @@ from .work_type_report_view import WorkTypeReportView
 from ..constants import QtStyleResources
 from ..constants import MainWindowPages, ReportGenerationPages
 from .generated.ui.ui_report_generation_widget import Ui_ReportGenerationWidget
-from ..view_models.division_viewmodel import DivisionViewModel
+from ..viewmodels.division_viewmodel import DivisionViewModel
 
 
 class ReportGeneratorView(QtWidgets.QWidget, Ui_ReportGenerationWidget):

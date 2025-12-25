@@ -1,6 +1,9 @@
 import enum
 
 
+DATABASE_URL = "sqlite:///instance/work_database.db"
+
+
 class QtResources(enum.StrEnum):
     pass
 

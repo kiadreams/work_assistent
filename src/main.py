@@ -2,7 +2,8 @@
 # from src.packages.worksheets.worksheets import WorkSheets
 
 from src import entities
-from src.databases.database import create_db_tables
+from src.databases.database import DatabaseManager
+from constants import DATABASE_URL
 
 
 from PySide6 import QtWidgets
@@ -27,7 +28,8 @@ from PySide6 import QtWidgets
 
 
 if __name__ == "__main__":
-    create_db_tables()
+    db_manager = DatabaseManager(DATABASE_URL)
+    db_manager.create_db_tables()
     # b_title = 'Ведомость_работ.xlsx'
     # # ws_first_title = 'Страница_1 V05110______'
     # # ws_second_title = 'Страница_2 V05110______'

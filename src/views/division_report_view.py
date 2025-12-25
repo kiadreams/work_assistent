@@ -6,7 +6,7 @@ from ..utils.qt_recource_loader import ResourceLoader
 from .dialog_edit_view import DialogEditView
 from src.constants import QtStyleResources
 from src.views.generated.ui.ui_divisions_report_widget import Ui_DivisionReportWidget
-from src.view_models.division_viewmodel import DivisionViewModel
+from src.viewmodels.division_viewmodel import DivisionViewModel
 
 
 class DivisionReportView(QtWidgets.QWidget, Ui_DivisionReportWidget):
