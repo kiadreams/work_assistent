@@ -12,7 +12,7 @@ def compile_qrc() -> None:
     env_bin_path = Path(sys.executable).parent
     print(env_bin_path)
     qrc_file = Path("resources.qrc")
-    output_py_file = Path("src/views/generated/resources_rc.py")
+    output_py_file = Path("src/gui/generated/resources_rc.py")
 
     # Проверяем наличие входного файла
     path_to_pyside6_rcc = Path("pyside6-rcc")
@@ -50,7 +50,7 @@ def compile_ui() -> None:
     platform = sys.platform
     env_bin_path = Path(sys.executable).parent
     ui_files = Path("assets/qt_assets/forms")
-    ui_py_files = Path("src/views/generated/ui")
+    ui_py_files = Path("src/gui/generated/ui")
 
     path_to_pyside6_uic = Path("pyside6-uic")
     if platform.startswith("linux"):

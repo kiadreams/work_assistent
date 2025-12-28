@@ -3,6 +3,7 @@ name = ""
 version = "0.0.2"
 requires-python = ">=3.13"
 dependencies = [
+    "dishka>=1.7.2",
     "openpyxl>=3.1.5",
     "pillow>=12.0.0",
     "pydantic[email]>=2.12.5",
@@ -56,7 +57,7 @@ ignore_missing_imports = true
 
 # Пример: Игнорировать ошибки типов в папке миграций SQLAlchemy/Django
 [[tool.mypy.overrides]]
-module = ["migrations.*", "vendor.*", "src.views.windows.*", "src.views.generated.*"]
+module = ["migrations.*", "vendor.*", "src.gui.generated.*"]
 ignore_errors = true
 
 # Пример: Сделать определенный файл менее строгим
