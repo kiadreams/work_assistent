@@ -1,14 +1,20 @@
 from __future__ import annotations
 
-from typing import Protocol, TYPE_CHECKING
+from typing import (
+    Protocol,
+    TYPE_CHECKING,
+)
 
 
 if TYPE_CHECKING:
-    from src.database.entities.division import Division
+    from src.core.models.division_domain import DivisionDomain
 
 
-class IDivisionRepository(Protocol):
-    def get_division_by_name(self, name: str) -> Division: ...
+class DivisionRepositoryProtocol(Protocol):
+
+    def get_division_by_name(self, name: str) -> DivisionDomain | None: ...
 
     @property
-    def all_divisions(self) -> list[Division]: ...
+    def all_divisions(self) -> list[DivisionDomain]: ...
+
+    def add_new_division(self, division: DivisionDomain) -> None: ...
