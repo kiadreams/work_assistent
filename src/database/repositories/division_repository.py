@@ -3,31 +3,32 @@ from sqlalchemy.exc import MultipleResultsFound
 from sqlalchemy.orm import Session
 
 from ..entities import Division
-from ...core.interfaces.repositories import DivisionRepositoryProtocol
+from ...core.models.division_domain import DivisionDomain
 
 
-class DivisionRepository(DivisionRepositoryProtocol):
+class DivisionRepository:
     def __init__(self, session: Session):
         self.session = session
 
-    def get_division_by_name(self, name: str) -> Division | None:
+    def get_division_by_name(self, name: str) -> DivisionDomain | None:
         stmt = select(Division).where(Division.name == name)
         try:
             division = self.session.scalar(stmt)
-            return division
+            return DivisionDomain.model_validate(division)
         except MultipleResultsFound:
             print(f"Найдено более одного значения division")
         return None
 
     @property
-    def all_divisions(self) -> list[Division]:
+    def all_divisions(self) -> list[DivisionDomain]:
         stmt = select(Division).order_by(Division.name.asc())
         try:
             divisions = self.session.scalars(stmt).all()
-            return list(divisions)
+            return [DivisionDomain.model_validate(d) for d in divisions]
         except Exception as e:
             print(f"Произошла ошибка при запросе всех служб: {e}")
             return []
 
-    def add_new_division(self, division: Division) -> None:
+    def add_new_division(self, division_domain: DivisionDomain) -> None:
+        division = Division(name=division_domain.name, full_name=division_domain.full_name)
         self.session.add(division)

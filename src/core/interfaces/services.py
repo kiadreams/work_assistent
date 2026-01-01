@@ -1,14 +1,15 @@
 from __future__ import annotations
 
-from typing import (
-    Protocol,
-    TYPE_CHECKING,
-)
+from typing import Protocol
 
-
-if TYPE_CHECKING:
-    from src.database.entities.division import Division
+from src.core.models.division_domain import DivisionDomain
 
 
 class EmployeeServiceProtocol(Protocol):
-    pass
+    def is_division_deleted(self, division: DivisionDomain) -> bool: ...
+
+    def load_all_divisions(self) -> list[DivisionDomain]: ...
+
+    def save_division(self, division: DivisionDomain) -> None: ...
+
+    def delete_division(self, division: DivisionDomain) -> None: ...

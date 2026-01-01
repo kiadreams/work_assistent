@@ -9,10 +9,10 @@ from src.gui.constants import MainWindowPages
 
 
 class MainWindowView(QtWidgets.QMainWindow, Ui_MainWindow):
-    def __init__(self) -> None:
+    def __init__(self, views: ReportGeneratorView) -> None:
         super().__init__()
         self.main_menu = MainMenuView()
-        self.report_generator = ReportGeneratorView()
+        self.report_views = views
         self.__init_content_widget()
         self.__setup_connections()
 
@@ -23,7 +23,7 @@ class MainWindowView(QtWidgets.QMainWindow, Ui_MainWindow):
             MainWindowPages.MAIN_MENU, self.get_widget_to_insert(self.main_menu)
         )
         self.stackedWidget_windows.insertWidget(
-            MainWindowPages.REPORT_CREATION, self.get_widget_to_insert(self.report_generator)
+            MainWindowPages.REPORT_CREATION, self.get_widget_to_insert(self.report_views)
         )
         self.stackedWidget_windows.setCurrentIndex(MainWindowPages.MAIN_MENU)
         self.resize(1280, 800)
@@ -31,7 +31,7 @@ class MainWindowView(QtWidgets.QMainWindow, Ui_MainWindow):
     def __setup_connections(self) -> None:
         self.main_menu.close_app_signal.connect(self.close)
         self.main_menu.change_page_signal.connect(self.change_page)
-        self.report_generator.change_page_signal.connect(self.change_page)
+        self.report_views.change_page_signal.connect(self.change_page)
 
     def change_page(self, index: int) -> None:
         self.stackedWidget_windows.setCurrentIndex(index)

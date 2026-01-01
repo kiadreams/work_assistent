@@ -12,20 +12,29 @@ from src.gui.constants import QtStyleResources
 from src.gui.constants import MainWindowPages, ReportGenerationPages
 from src.gui.generated import Ui_ReportGenerationWidget
 from src.gui.viewmodels import DivisionViewModel
+from ...services.EmployeeService import EmployeeService
 
 
 class ReportGeneratorView(QtWidgets.QWidget, Ui_ReportGenerationWidget):
 
     change_page_signal = Signal(int)
 
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        division_view: DivisionReportView,
+        staff_view: StaffReportView,
+        work_types_view: WorkTypeReportView,
+        works_view: WorkReportView,
+        orders_view: OrderReportView,
+        work_events_view: WorkEventReportView,
+    ) -> None:
         super().__init__()
-        self.services = DivisionReportView(DivisionViewModel("Кубансое ПМЭС"))
-        self.staff = StaffReportView()
-        self.work_types = WorkTypeReportView()
-        self.works = WorkReportView()
-        self.orders = OrderReportView()
-        self.work_events = WorkEventReportView()
+        self.services = division_view
+        self.staff = staff_view
+        self.work_types = work_types_view
+        self.works = works_view
+        self.orders = orders_view
+        self.work_events = work_events_view
         self.__init_content_widget()
         self.__setup_connections()
 

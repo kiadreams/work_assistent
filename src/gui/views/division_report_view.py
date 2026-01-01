@@ -40,14 +40,14 @@ class DivisionReportView(QtWidgets.QWidget, Ui_DivisionReportWidget):
         self.check_enabled_division_deleted_button()
 
     def check_enabled_division_deleted_button(self) -> None:
-        is_enabled = self.model.can_delete_current_division()
+        is_enabled = self.model.is_current_division_deleted
         self.pushButton_remove_division.setEnabled(is_enabled)
 
     def push_add_division(self) -> None:
         self.call_data_dialog()
 
     def push_remove_division(self) -> None:
-        if self.model.can_delete_current_division():
+        if self.model.is_current_division_deleted:
             self.ask_for_confirmation(
                 f"Вы уверены, что хотите безвозвратно удалить службу {self.model.current_service}? "
                 "Отменить это действие будет невозможно...",
@@ -94,7 +94,7 @@ class DivisionReportView(QtWidgets.QWidget, Ui_DivisionReportWidget):
     def refresh_combobox_division_list(self) -> None:
         self.comboBox_division_list.blockSignals(True)
         self.comboBox_division_list.clear()
-        self.comboBox_division_list.addItems(self.model.services)
+        self.comboBox_division_list.addItems(self.model.divisions)
         self.comboBox_division_list.setCurrentText(self.model.current_service)
         self.comboBox_division_list.blockSignals(False)
 
