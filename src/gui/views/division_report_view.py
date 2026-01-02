@@ -6,12 +6,12 @@ from src.utils.qt_recource_loader import ResourceLoader
 from .dialog_edit_view import DialogEditView
 from src.gui.constants import QtStyleResources
 from src.gui.generated import Ui_DivisionReportWidget
-from src.gui.viewmodels import DivisionViewModel
+from ...core.interfaces.viewmodels import DivisionViewModelProtocol
 
 
 class DivisionReportView(QtWidgets.QWidget, Ui_DivisionReportWidget):
 
-    def __init__(self, viewmodel: DivisionViewModel) -> None:
+    def __init__(self, viewmodel: DivisionViewModelProtocol) -> None:
         super().__init__()
         self.model = viewmodel
         self.__init_content_widget()

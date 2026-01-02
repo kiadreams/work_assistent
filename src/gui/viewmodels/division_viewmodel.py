@@ -1,13 +1,13 @@
-from sqlalchemy import select
+from dishka import Container, Scope
 
 from ...core.interfaces.services import EmployeeServiceProtocol
 from ...core.models.division_domain import DivisionDomain
 
 
 class DivisionViewModel:
-    def __init__(self, employee_service: EmployeeServiceProtocol):
+    def __init__(self, container: Container):
         super().__init__()
-        self.__employee_service = employee_service
+        self._di_container = container
         self.company = "Кубанское ПМЭС"
         self.__divisions: list[DivisionDomain] = []
         self.__current_division: DivisionDomain | None = None
@@ -29,14 +29,19 @@ class DivisionViewModel:
         return [service.name for service in self.__divisions]
 
     def show_all_divisions(self) -> None:
-        stmt = select(DivisionDomain)
-        self.__divisions = self.__employee_service.load_all_divisions()
+        with self._di_container(scope=Scope.REQUEST) as service_container:
+            print('создаем экземпляр сервиса')
+            employee_service = service_container.get(EmployeeServiceProtocol)
+            print(employee_service)
+            self.__divisions = employee_service.load_all_divisions()
 
     def add_new_division(self, service_data: tuple[str, str]) -> None:
         name, full_name = service_data
         division = DivisionDomain(name=name, full_name=full_name)
         self.__divisions.append(division)
-        self.__employee_service.save_division(division)
+        with self._di_container(scope=Scope.REQUEST) as service_container:
+            employee_service = service_container.get(EmployeeServiceProtocol)
+            employee_service.save_division(division)
 
     @property
     def first_division(self) -> DivisionDomain | None:
@@ -48,7 +53,9 @@ class DivisionViewModel:
     def is_current_division_deleted(self) -> bool:
         if self.__current_division is None:
             return False
-        return self.__employee_service.is_division_deleted(self.__current_division)
+        with self._di_container(scope=Scope.REQUEST) as service_container:
+            employee_service = service_container.get(EmployeeServiceProtocol)
+            return employee_service.is_division_deleted(self.__current_division)  # type: ignore[no-any-return]
 
     def change_current_division(self, division_name: str) -> None:
         division_names = [division.name for division in self.__divisions]
@@ -59,4 +66,7 @@ class DivisionViewModel:
 
     def delete_current_division(self) -> None:
         if self.__current_division is not None and self.is_current_division_deleted:
-            self.__employee_service.delete_division(self.__current_division)  #
+            self.__divisions.remove(self.__current_division)
+            with self._di_container(scope=Scope.REQUEST) as service_container:
+                employee_service = service_container.get(EmployeeServiceProtocol)
+                employee_service.delete_division(self.__current_division)

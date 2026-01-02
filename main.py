@@ -1,6 +1,9 @@
-from src.core.app_coordinator import AppCoordinator
+import sys
+
+from PySide6.QtWidgets import QApplication
+
+from src.core.interfaces.coordinators import AppCoordinatorProtocol
 from src.core.interfaces.repositories import DatabaseManagerProtocol
-from src.database.db_manager import DatabaseManager
 from src.di.container import get_container
 
 
@@ -9,5 +12,6 @@ if __name__ == "__main__":
     db_manager = container.get(DatabaseManagerProtocol)
     db_manager.create_db_tables()
 
-    print(container)
-    coordinator = AppCoordinator(container)
+    app = QApplication(sys.argv)
+    coordinator = container.get(AppCoordinatorProtocol)
+    sys.exit(app.exec())

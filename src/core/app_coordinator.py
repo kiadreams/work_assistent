@@ -1,14 +1,20 @@
-from PySide6.QtCore import QObject
-from dishka import Container
-
 from ..gui.views import MainWindowView
 
 
-class AppCoordinator(QObject):
-    def __init__(self, container: Container) -> None:
+class AppCoordinator:
+    def __init__(self, main_window: MainWindowView) -> None:
         super().__init__()
-        self.container = container
+        self.main_window = main_window
+        self.start_app()
 
-    # def _init_app_windows(self) -> None:
-    #     main_window = self.container.get(MainWindowView)
-    #     main_window.show()
+    def start_app(self) -> None:
+        self.main_window.show()
+
+    def open_create_report_window(self) -> None:
+        pass
+
+    def open_create_protocol_window(self) -> None:
+        pass
+
+    def close_app(self) -> None:
+        pass
