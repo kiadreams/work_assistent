@@ -1,10 +1,15 @@
 from typing import Protocol
 
-from ...core.interfaces.services import EmployeeServiceProtocol
+from .invokers import OperationInvokerProtocol
 from ...core.models.division_domain import DivisionDomain
 
 
-class DivisionViewModelProtocol(Protocol):
+class BaseViewModelProtocol(Protocol):
+    def init_model_data(self) -> None: ...
+
+
+class DivisionViewModelProtocol(BaseViewModelProtocol, Protocol):
+    _operation_invoker: OperationInvokerProtocol
 
     @property
     def current_service(self) -> str: ...

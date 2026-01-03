@@ -1,19 +1,18 @@
 from dishka import Container, Scope
 
+from ...core.interfaces.invokers import OperationInvokerProtocol
 from ...core.interfaces.services import EmployeeServiceProtocol
 from ...core.models.division_domain import DivisionDomain
 
 
 class DivisionViewModel:
-    def __init__(self, container: Container):
-        super().__init__()
-        self._di_container = container
+    def __init__(self, operation_invoker: OperationInvokerProtocol) -> None:
+        self._operation_invoker = operation_invoker
         self.company = "Кубанское ПМЭС"
         self.__divisions: list[DivisionDomain] = []
         self.__current_division: DivisionDomain | None = None
-        self._init_model_data()
 
-    def _init_model_data(self) -> None:
+    def init_model_data(self) -> None:
         self.show_all_divisions()
         self.__current_division = self.first_division
 

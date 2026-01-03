@@ -5,11 +5,13 @@ from sqlalchemy.orm import Session
 
 from src.core.app_coordinator import AppCoordinator
 from src.core.interfaces.coordinators import AppCoordinatorProtocol
+from src.core.interfaces.invokers import OperationInvokerProtocol
 from src.core.interfaces.repositories import DivisionRepositoryProtocol, DatabaseManagerProtocol
 from src.core.interfaces.services import EmployeeServiceProtocol
 from src.core.interfaces.viewmodels import DivisionViewModelProtocol
 from src.database.db_manager import DatabaseManager
 from src.database.repositories.division_repository import DivisionRepository
+from src.di.invokers import OperationInvoker
 from src.gui.viewmodels import DivisionViewModel
 from src.gui.views import (
     MainMenuView,
@@ -31,38 +33,38 @@ class DatabaseProvider(Provider):
         return DatabaseManager()
 
     @provide(scope=Scope.REQUEST)
-    def db_session(self, manager: DatabaseManagerProtocol) -> ContextManager[Session]:
-        print('пытаемся создать сессию')
-        return manager.get_db_session()
-        # with manager.get_db_session() as session:
-        #     print('создали кон')
-        #     return session
+    def db_session(self, manager: DatabaseManagerProtocol) -> Session:
+        print("пытаемся создать сессию")
+        return manager.create_session()
 
     @provide(scope=Scope.REQUEST)
-    def division_repository(self, session: Session) -> DivisionRepositoryProtocol: #!!!!!
-        print('создаем репозиторий')
-        return DivisionRepository(session=session)
+    def division_repository(self, curr_session: Session) -> DivisionRepositoryProtocol:
+        print("создаем репозиторий")
+        return DivisionRepository(session=curr_session)
+
+
+class InvokersProvider(Provider):
+    @provide(scope=Scope.APP)
+    def operation_invoker(self, root_container: Container) -> OperationInvokerProtocol:
+        return OperationInvoker(root_container=root_container)
 
 
 class ServiceProvider(Provider):
     @provide(scope=Scope.REQUEST)
     def employee_service(
-            self,
-            divisions_repository: DivisionRepositoryProtocol
+        self, divisions_repository: DivisionRepositoryProtocol
     ) -> EmployeeServiceProtocol:
-        print('создаем сервис')
-        return EmployeeService(
-            division_repository=divisions_repository
-        )
+        print("создаем сервис")
+        return EmployeeService(division_repository=divisions_repository)
 
 
 class ViewmodelProvider(Provider):
     @provide(scope=Scope.APP)
     def division_viewmodel(
         self,
-        root_container: Container,
+        operation_invokers: OperationInvokerProtocol,
     ) -> DivisionViewModelProtocol:
-        return DivisionViewModel(container=root_container)
+        return DivisionViewModel(operation_invoker=operation_invokers)
 
 
 class UIWindowsProvider(Provider):
@@ -124,5 +126,5 @@ class CoordinatorsProvider(Provider):
         self,
         main_window: MainWindowView,
     ) -> AppCoordinatorProtocol:
-        print('создаем координатор')
+        print("создаем координатор")
         return AppCoordinator(main_window=main_window)
