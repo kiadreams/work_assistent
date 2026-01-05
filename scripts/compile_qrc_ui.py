@@ -4,20 +4,21 @@ import sys
 from pathlib import Path
 
 
+def get_scripts_and_root_dir():
+    env_bin_path = Path(sys.executable).parent
+    root_dir = env_bin_path.parent.parent
+    return root_dir, env_bin_path
+
+
 def compile_qrc() -> None:
     """
     Запускает команду pyside6-rcc для компиляции QRC файла.
     """
-    platform = sys.platform
-    env_bin_path = Path(sys.executable).parent
-    print(env_bin_path)
-    qrc_file = Path("resources.qrc")
-    output_py_file = Path("src/gui/generated/resources_rc.py")
-
-    # Проверяем наличие входного файла
-    path_to_pyside6_rcc = Path("pyside6-rcc")
-    if platform.startswith("linux"):
-        path_to_pyside6_rcc = env_bin_path / path_to_pyside6_rcc
+    root_dir, env_bin_path = get_scripts_and_root_dir()
+    qrc_file = root_dir / "resources.qrc"
+    output_py_file = root_dir / "src/gui/generated/resources_rc.py"
+    path_to_pyside6_rcc = env_bin_path / "pyside6-rcc"
+    print(path_to_pyside6_rcc.as_posix())
     if not qrc_file.exists():
         print(f"Ошибка: Исходный файл ресурсов не найден: {qrc_file}")
         sys.exit(1)
@@ -47,14 +48,10 @@ def compile_ui() -> None:
     """
     Запускает команду pyside6-uic для компиляции ui файла.
     """
-    platform = sys.platform
-    env_bin_path = Path(sys.executable).parent
-    ui_files = Path("assets/qt_assets/forms")
-    ui_py_files = Path("src/gui/generated/ui")
-
-    path_to_pyside6_uic = Path("pyside6-uic")
-    if platform.startswith("linux"):
-        path_to_pyside6_uic = env_bin_path / path_to_pyside6_uic
+    root_dir, env_bin_path = get_scripts_and_root_dir()
+    ui_files = root_dir / "assets/qt_assets/forms"
+    ui_py_files = root_dir / "src/gui/generated/ui"
+    path_to_pyside6_uic = env_bin_path / "pyside6-uic"
     for elem in ui_files.iterdir():
         if not (elem.is_file() or elem.suffix == ".ui"):
             continue
@@ -80,3 +77,8 @@ def compile_ui() -> None:
         except subprocess.CalledProcessError as e:
             print(f"Произошла ошибка при выполнении команды компиляции: {e}")
             sys.exit(1)
+
+
+if __name__ == "__main__":
+    compile_ui()
+    compile_qrc()
