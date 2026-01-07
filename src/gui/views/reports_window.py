@@ -1,15 +1,21 @@
 from PySide6 import QtWidgets
 from PySide6.QtCore import Signal
 
-from src.gui.constants import QtStyleResources, ReportsWindowPages
+from src.gui.constants import QtStyleResources, ReportsViews
 from src.gui.generated import Ui_ReportsWindowWidget
 from src.utils.qt_recource_loader import ResourceLoader
 
 from ...core.constants import PageStructure
 
 
-class ReportsWindowView(QtWidgets.QWidget, Ui_ReportsWindowWidget):
+class ReportsWindow(QtWidgets.QWidget, Ui_ReportsWindowWidget):
     back_main_menu_signal = Signal()
+    open_divisions_view_signal = Signal()
+    open_staff_view_signal = Signal()
+    open_work_types_view_signal = Signal()
+    open_orders_view_signal = Signal()
+    open_works_view_signal = Signal()
+    open_work_events_view_signal = Signal()
 
     def __init__(self) -> None:
         super().__init__()
@@ -28,25 +34,31 @@ class ReportsWindowView(QtWidgets.QWidget, Ui_ReportsWindowWidget):
         self.pushButton_divisions.setChecked(True)
         self.comboBox_company.insertItem(0, self.company)
 
-    def insert_into_stacked_windows(self, index: PageStructure, widget: QtWidgets.QWidget) -> None:
+    def add_view(self, index: PageStructure, widget: QtWidgets.QWidget) -> None:
         layout_widget = self.get_widget_to_insert(widget)
         self.stackedWidget_report_types.insertWidget(index, layout_widget)
 
     def __setup_connections(self) -> None:
         self.pushButton_go_to_main_menu.clicked.connect(self.back_main_menu_signal.emit)
-        self.reports_button_group.idClicked.connect(self.change_page)
+        self.pushButton_divisions.clicked.connect(self.open_divisions_view_signal.emit)
+        self.pushButton_staff.clicked.connect(self.open_staff_view_signal.emit)
+        self.pushButton_work_types.clicked.connect(self.open_work_types_view_signal.emit)
+        self.pushButton_works.clicked.connect(self.open_works_view_signal.emit)
+        self.pushButton_orders.clicked.connect(self.open_orders_view_signal.emit)
+        self.pushButton_work_events.clicked.connect(self.open_work_events_view_signal.emit)
+        # self.reports_button_group.idClicked.connect(self.change_view)
 
-    def change_page(self, index: int) -> None:
+    def change_view(self, index: int) -> None:
         self.stackedWidget_report_types.setCurrentIndex(index)
 
     def _get_report_buttons_group(self) -> list[tuple[QtWidgets.QPushButton, int]]:
         return [
-            (self.pushButton_divisions, ReportsWindowPages.DIVISIONS),
-            (self.pushButton_staff, ReportsWindowPages.STAFF),
-            (self.pushButton_work_types, ReportsWindowPages.WORK_TYPES),
-            (self.pushButton_works, ReportsWindowPages.WORKS),
-            (self.pushButton_orders, ReportsWindowPages.ORDERS),
-            (self.pushButton_work_events, ReportsWindowPages.WORK_EVENTS),
+            (self.pushButton_divisions, ReportsViews.DIVISIONS),
+            (self.pushButton_staff, ReportsViews.STAFF),
+            (self.pushButton_work_types, ReportsViews.WORK_TYPES),
+            (self.pushButton_works, ReportsViews.WORKS),
+            (self.pushButton_orders, ReportsViews.ORDERS),
+            (self.pushButton_work_events, ReportsViews.WORK_EVENTS),
         ]
 
     @staticmethod

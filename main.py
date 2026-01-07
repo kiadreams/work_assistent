@@ -2,9 +2,9 @@ import sys
 
 from PySide6.QtWidgets import QApplication
 
-from src.core.interfaces.coordinators import AppCoordinatorProtocol
-from src.core.interfaces.repositories import DatabaseManagerProtocol
+from src.database.interfaces import DatabaseManagerProtocol
 from src.di.container import get_container
+from src.gui.interfaces.coordinators import AppCoordinatorProtocol
 
 
 def close_app() -> None:

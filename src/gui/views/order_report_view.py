@@ -8,10 +8,10 @@ from src.utils.qt_recource_loader import ResourceLoader
 class OrderReportView(QtWidgets.QWidget, Ui_OrderReportWidget):
     def __init__(self) -> None:
         super().__init__()
-        self.__init_content_widget()
+        self.init_content_view()
         self.__setup_connections()
 
-    def __init_content_widget(self) -> None:
+    def init_content_view(self) -> None:
         self.setupUi(self)  # type: ignore[no-untyped-call]
         self.setStyleSheet(ResourceLoader(QtStyleResources.REPORT_WIDGET_STYLE).load_style())
 

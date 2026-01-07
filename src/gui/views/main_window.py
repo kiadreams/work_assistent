@@ -7,7 +7,7 @@ from src.utils.qt_recource_loader import ResourceLoader
 from ...core.constants import PageStructure
 
 
-class MainWindowView(QtWidgets.QMainWindow, Ui_MainWindow):
+class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self) -> None:
         super().__init__()
         self.init_content_view()
@@ -17,11 +17,11 @@ class MainWindowView(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setStyleSheet(ResourceLoader(QtStyleResources.MAIN_WINDOW_STYLE).load_style())
         self.resize(1280, 800)
 
-    def insert_into_stacked_windows(self, index: PageStructure, widget: QtWidgets.QWidget) -> None:
+    def add_window(self, index: PageStructure, widget: QtWidgets.QWidget) -> None:
         layout_widget = self.get_widget_to_insert(widget)
         self.stackedWidget_windows.insertWidget(index, layout_widget)
 
-    def change_page(self, index: int) -> None:
+    def change_window(self, index: int) -> None:
         self.stackedWidget_windows.setCurrentIndex(index)
 
     @staticmethod

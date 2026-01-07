@@ -7,13 +7,13 @@ class QtResources(enum.StrEnum):
     pass
 
 
-class MainWindowPages(PageStructure):
+class MainWindows(PageStructure):
     MAIN_MENU = 0
     REPORTS_WINDOW = 1
     PROTOCOLS_WINDOW = 2
 
 
-class ReportsWindowPages(PageStructure):
+class ReportsViews(PageStructure):
     DIVISIONS = 0
     STAFF = 1
     WORK_TYPES = 2

@@ -6,7 +6,7 @@ from src.gui.generated import Ui_MainMenuWidget
 from src.utils.qt_recource_loader import ResourceLoader
 
 
-class MainMenuView(QtWidgets.QWidget, Ui_MainMenuWidget):
+class MainMenuWindow(QtWidgets.QWidget, Ui_MainMenuWidget):
     open_reports_window_signal = Signal()
     open_protocols_window_signal = Signal()
     close_app_signal = Signal()
@@ -24,11 +24,3 @@ class MainMenuView(QtWidgets.QWidget, Ui_MainMenuWidget):
         self.pushButton_exit.clicked.connect(self.close_app_signal.emit)
         self.pushButton_create_sheets.clicked.connect(self.open_reports_window_signal.emit)
         self.pushButton_create_protocols.clicked.connect(self.open_protocols_window_signal.emit)
-
-    # def create_sheets(self) -> None:
-    #     self.plainTextEdit_logs.appendPlainText("нажали кнопку создания рабочих ведомостей".upper())
-    #     self.open_reports_window_signal.emit(MainWindowPages.REPORTS_WINDOW)
-    #
-    # def create_protocols(self) -> None:
-    #     self.plainTextEdit_logs.appendPlainText("пока данный функционал в разработке".upper())
-    #     self.open_protocols_window_signal.emit(MainWindowPages.REPORTS_WINDOW)

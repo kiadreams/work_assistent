@@ -1,5 +1,5 @@
-from src.core.interfaces.repositories import DivisionRepositoryProtocol
 from src.core.models.division_domain import DivisionDomain
+from src.database.interfaces.repositories import DivisionRepositoryProtocol
 
 
 class EmployeeService:

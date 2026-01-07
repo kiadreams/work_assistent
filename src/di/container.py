@@ -1,9 +1,9 @@
 from dishka import Container, make_container
 
-from src.di.providers import (
+from .providers import (
     CoordinatorsProvider,
     DatabaseProvider,
-    FactoriesProvider,
+    InjectionsProvider,
     ServiceProvider,
     UIWindowsProvider,
     ViewmodelProvider,
@@ -17,5 +17,5 @@ def get_container() -> Container:
         ViewmodelProvider(),
         UIWindowsProvider(),
         CoordinatorsProvider(),
-        FactoriesProvider(),
+        InjectionsProvider(),
     )

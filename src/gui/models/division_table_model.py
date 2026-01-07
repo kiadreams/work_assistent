@@ -1,10 +1,10 @@
-from PySide6.QtCore import QAbstractTableModel, QModelIndex, Qt
+from PySide6.QtCore import QAbstractTableModel, QModelIndex, QObject, QPersistentModelIndex, Qt
 
-from src.viewmodels.qt_interfaces import QtDivisionVMProtocol
+from src.viewmodels.interfaces import DivisionViewModelProtocol
 
 
 class DivisionTableModel(QAbstractTableModel):
-    def __init__(self, viewmodel: QtDivisionVMProtocol, parent=None):
+    def __init__(self, viewmodel: DivisionViewModelProtocol, parent: QObject | None = None):
         super().__init__(parent)
         self.vm = viewmodel
         self.headers = ["Служба", "Полное наименование"]
@@ -12,15 +12,17 @@ class DivisionTableModel(QAbstractTableModel):
 
         self.vm.data_changed_signal.connect(self.layoutChanged.emit)
 
-    def rowCount(self, parent: QModelIndex = QModelIndex()) -> int:
+    def rowCount(self, parent: QModelIndex | QPersistentModelIndex = QModelIndex()) -> int:
         """Возвращает количество строк (элементов в списке ViewModel)."""
         return len(self.vm.divisions)
 
-    def columnCount(self, parent: QModelIndex = QModelIndex()) -> int:
+    def columnCount(self, parent: QModelIndex | QPersistentModelIndex = QModelIndex()) -> int:
         """Возвращает количество столбцов (заголовков)."""
         return len(self.headers)
 
-    def data(self, index: QModelIndex, role: int = Qt.ItemDataRole.DisplayRole) -> str | None:
+    def data(
+        self, index: QModelIndex | QPersistentModelIndex, role: int = Qt.ItemDataRole.DisplayRole
+    ) -> str | None:
         """Предоставляет данные для каждой ячейки."""
         if role == Qt.ItemDataRole.DisplayRole:
             row = index.row()

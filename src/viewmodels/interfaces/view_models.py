@@ -1,10 +1,14 @@
 from typing import Protocol
 
-from ...core.models.division_domain import DivisionDomain
-from .invokers import OperationInvokerProtocol
+from PySide6.QtCore import SignalInstance
+
+from src.core.models.division_domain import DivisionDomain
+from src.di.interfaces import OperationInvokerProtocol
 
 
 class BaseViewModelProtocol(Protocol):
+    data_changed_signal: SignalInstance
+
     def init_model_data(self) -> None: ...
 
 

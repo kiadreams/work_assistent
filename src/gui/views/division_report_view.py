@@ -5,21 +5,22 @@ from PySide6 import QtWidgets
 from src.gui.constants import QtStyleResources
 from src.gui.generated import Ui_DivisionReportWidget
 from src.utils.qt_recource_loader import ResourceLoader
+from src.viewmodels.interfaces import DivisionViewModelProtocol
 
-from ...viewmodels.qt_interfaces import QtDivisionVMProtocol
 from ..models.division_table_model import DivisionTableModel
 from .dialog_edit_view import DialogEditView
 
 
 class DivisionReportView(QtWidgets.QWidget, Ui_DivisionReportWidget):
-    def __init__(self, viewmodel: QtDivisionVMProtocol) -> None:
+    def __init__(self, viewmodel: DivisionViewModelProtocol) -> None:
         super().__init__()
         self.model = viewmodel
         self.table_model = DivisionTableModel(self.model)
-        self.__init_content_widget()
+        self.init_content_view()
         self.__setup_connections()
 
-    def __init_content_widget(self) -> None:
+    def init_content_view(self) -> None:
+
         self.setupUi(self)  # type: ignore[no-untyped-call]
         self.setStyleSheet(ResourceLoader(QtStyleResources.REPORT_WIDGET_STYLE).load_style())
         self.refresh_division_report()
@@ -31,7 +32,9 @@ class DivisionReportView(QtWidgets.QWidget, Ui_DivisionReportWidget):
         self.pushButton_add_department.clicked.connect(self.push_add_department)
         self.pushButton_remove_department.clicked.connect(self.push_remove_department)
         self.pushButton_edit_department.clicked.connect(self.push_edit_department)
-        self.comboBox_division_list.currentTextChanged.connect(self.choose_current_division)
+        # self.comboBox_division_list.currentTextChanged.connect(self.choose_current_division)
+        self.comboBox_division_list.setModel(self.table_model)
+        self.tableView_division_data_table.setModel(self.table_model)
 
     def choose_current_division(self, service_name: str) -> None:
         self.model.choose_current_division(service_name)

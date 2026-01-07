@@ -139,7 +139,7 @@
       </layout>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget_division_data_table"/>
+      <widget class="QTableView" name="tableView_division_data_table"/>
      </item>
     </layout>
    </item>
